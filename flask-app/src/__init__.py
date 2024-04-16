@@ -34,12 +34,12 @@ def create_app():
 
     # Import the various Beluprint Objects
     from src.language.language import language
-
-
+    from src.people.people import people
+    # from src.traveler.traveler import traveler
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
     app.register_blueprint(language,   url_prefix='/l')
-
+    app.register_blueprint(people, url_prefix='/p')
 
     # Don't forget to return the app object
     return app
