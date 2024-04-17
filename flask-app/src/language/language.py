@@ -166,9 +166,6 @@ def add_new_language():
 
 
 
-
-
-
 # Second GET:
 @language.route('/language/<id>', methods=['GET'])
 def get_product_detail (id):
