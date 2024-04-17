@@ -152,95 +152,51 @@ def put_traveler():
 
 
 
-# @language.route('/language', methods = ['PUT'])
-# def put_language():
-#       # collecting data from the request object 
-#     the_data = request.json
-#     current_app.logger.info(the_data)
+# POST method for adding a new traveler record
+@people.route('/traveler', methods=['POST'])
+def add_new_traveler():
 
-#     #extracting the variable
-#     LanguageID = the_data['LanguageID']
-#     DifficultyLevel = the_data['DifficultyLevel']
-#     Name = the_data['Name']
-#     # id = the_data['id']
-#     # company = the_data['company']
-#     # last_name = the_data['last_name']
-#     # first_name = the_data['first_name']
-#     # job_title = the_data['job_title']
-#     # business_phone = the_data['business_phone']
+# collecting data from the request object
+    the_data = request.json
+    current_app.logger.info(the_data)
 
-#     # Constructing the query
-#     query = '''
-#     UPDATE Language 
-#     SET DifficultyLevel=%s, Name=%s
-#     WHERE LanguageID = %s
-#     '''
-#     data = (DifficultyLevel, Name, LanguageID)
-
-#     current_app.logger.info(query)
-   
-#     # executing and committing the insert statement 
-#     cursor = db.get_db().cursor()
-#     cursor.execute(query, data)
-#     db.get_db().commit()
-    
-#     return 'Success!'
+    #extracting the variables
+    TravelerID = the_data['TravelerID']
+    Name = the_data['Name']
+    Age = the_data['Age']
+    Email = the_data['Email']
+    CountryOfOrigin = the_data['CountryOfOrigin']
+    NativeLanguage = the_data['NativeLanguage']
 
 
-# # @language.route('/language/<int:language_id>', methods=['DELETE'])
-# # def delete_language(language_id):
-# #     # Constructing the query
-# #     query = '''
-# #     DELETE FROM Language 
-# #     WHERE LanguageID = %s
-# #     '''
-# #     data = (language_id,)
+    # Constructing the query
+    query = 'INSERT INTO BABBLEBUDDIES.Traveler (TravelerID, Name, Age, Email, CountryOfOrigin, NativeLanguage) VALUES (%s, %s, %s, %s, %s, %s)'
+    current_app.logger.info(query)
 
-# #     current_app.logger.info(query)
+    # executing and committing the insert statement 
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (TravelerID, Name, Age, Email, CountryOfOrigin, NativeLanguage))
+    db.get_db().commit()
 
-# #     # executing and committing the delete statement
-# #     cursor = db.get_db().cursor()
-# #     cursor.execute(query, data)
-# #     db.get_db().commit()
-
-# #     return 'Language deleted successfully!'
+    return 'Success!'
 
 
 
+#delete traveler
+@people.route('/traveler/<id>', methods=['DELETE'])
+def delete_traveler(id):
+    # Constructing the query
+    query = '''
+    DELETE FROM BABBLEBUDDIES.Traveler 
+    WHERE TravelerID = %s
+    '''
+    data = (id,)
 
+    current_app.logger.info(query)
 
-# @language.route('/language', methods = ['DELETE'])
-# def delete_language():
-#       # collecting data from the request object 
-#     the_data = request.json
-#     current_app.logger.info(the_data)
+    # executing and committing the delete statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
 
-#     #extracting the variable
-#     LanguageID = the_data['LanguageID']
-#     DifficultyLevel = the_data['DifficultyLevel']
-#     Name = the_data['Name']
-
-#     # Constructing the query
-#     query = '''
-#     DELETE FROM Language 
-#     WHERE LanguageID = %s
-#     '''
-#     data = (DifficultyLevel, Name, LanguageID)
-
-#     current_app.logger.info(query)
-   
-#     # executing and committing the insert statement 
-#     cursor = db.get_db().cursor()
-#     cursor.execute(query, data)
-#     db.get_db().commit()
-    
-#     return 'Language deleted successfully!'
-
-
-
-
-
-
-
-
-
+    return 'Success!'
