@@ -182,6 +182,43 @@ def add_new_traveler():
 
 
 
+
+
+# POST method for adding a new student record
+@people.route('/student', methods=['POST'])
+def add_new_student():
+
+# collecting data from the request object
+    the_data = request.json
+    current_app.logger.info(the_data)
+
+    #extracting the variables
+    StudentID = the_data['StudentID']
+    Grades = the_data['Grades']
+    Name = the_data['Name']
+    Age = the_data['Age']
+    Email = the_data['Email']
+    CountryOfOrigin = the_data['CountryOfOrigin']
+    NativeLanguage = the_data['NativeLanguage']
+
+
+    # Constructing the query
+    query = 'INSERT INTO BABBLEBUDDIES.Student (StudentID, Grades, Name, Age, Email, CountryOfOrigin, NativeLanguage) VALUES (%s, %s, %s, %s, %s, %s, %s)'
+    current_app.logger.info(query)
+
+    # executing and committing the insert statement 
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (StudentID, Grades, Name, Age, Email, CountryOfOrigin, NativeLanguage))
+    db.get_db().commit()
+
+    return 'Success!'
+
+
+
+
+
+
+
 #delete traveler
 @people.route('/traveler/<id>', methods=['DELETE'])
 def delete_traveler(id):
@@ -189,6 +226,49 @@ def delete_traveler(id):
     query = '''
     DELETE FROM BABBLEBUDDIES.Traveler 
     WHERE TravelerID = %s
+    '''
+    data = (id,)
+
+    current_app.logger.info(query)
+
+    # executing and committing the delete statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    return 'Success!'
+
+
+
+
+#delete teacher
+@people.route('/teacher/<id>', methods=['DELETE'])
+def delete_teacher(id):
+    # Constructing the query
+    query = '''
+    DELETE FROM BABBLEBUDDIES.Teacher 
+    WHERE TeacherID = %s
+    '''
+    data = (id,)
+
+    current_app.logger.info(query)
+
+    # executing and committing the delete statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    return 'Success!'
+
+
+
+#delete student
+@people.route('/student/<id>', methods=['DELETE'])
+def delete_student(id):
+    # Constructing the query
+    query = '''
+    DELETE FROM BABBLEBUDDIES.Student 
+    WHERE StudentID = %s
     '''
     data = (id,)
 

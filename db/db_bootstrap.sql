@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS LearningMaterials(
 );
 
 CREATE TABLE IF NOT EXISTS Traveler(
-    TravelerID INT PRIMARY KEY,
+    TravelerID INT PRIMARY KEY ON DELETE CASCADE,
     Name VARCHAR(100) NOT NULL,
     Age INT NOT NULL,
     Email VARCHAR(100) NOT NULL,
@@ -104,10 +104,10 @@ CREATE TABLE IF NOT EXISTS Learns (
     LearnerID INT NOT NULL,
     TravelerID INT NOT NULL,
     PRIMARY KEY (StudentID, LanguageID, LearnerID, TravelerID),
-    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID) ON DELETE CASCADE,
     FOREIGN KEY (LanguageID) REFERENCES Language(LanguageID),
     FOREIGN KEY (LearnerID) REFERENCES Learner(LearnerID),
-    FOREIGN KEY (TravelerID) REFERENCES Traveler(TravelerID)
+    FOREIGN KEY (TravelerID) REFERENCES Traveler(TravelerID) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Country_language (
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS Travels_to (
     TravelerID INT NOT NULL,
     CountryID INT NOT NULL,
     PRIMARY KEY (TravelerID, CountryID),
-    FOREIGN KEY (TravelerID) REFERENCES Traveler(TravelerID),
+    FOREIGN KEY (TravelerID) REFERENCES Traveler(TravelerID) ON DELETE CASCADE,
     FOREIGN KEY (CountryID) REFERENCES Country(CountryID)
 );
 
@@ -182,7 +182,7 @@ CREATE TABLE IF NOT EXISTS Attends (
     StudentID INT NOT NULL,
     PRIMARY KEY (ClassID, StudentID),
     FOREIGN KEY (ClassID) REFERENCES Class(ClassID),
-    FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Holds (

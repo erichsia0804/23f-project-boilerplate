@@ -134,6 +134,7 @@ def delete_language(id):
 
 
 
+
 # POST method for adding a new language record
 @language.route('/language', methods=['POST'])
 def add_new_language():
