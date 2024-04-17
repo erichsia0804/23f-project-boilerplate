@@ -756,6 +756,10 @@ insert into Attends (classid, studentid) values (26, 6);
 insert into Attends (classid, studentid) values (23, 37);
 insert into Attends (classid, studentid) values (12, 5);
 insert into Attends (classid, studentid) values (35, 6);
+insert into Attends (classid, studentid) values (36, 1);
+insert into Attends (classid, studentid) values (37, 3);
+insert into Attends (classid, studentid) values (38, 5);
+
 
 insert into Supports (classid, materialid, languageid) values (30, 47, 38);
 insert into Supports (classid, materialid, languageid) values (46, 6, 30);
