@@ -111,31 +111,25 @@ def put_specific_language(language_id):
 
 
 
-
-
-
-
-
+# web:4000/l/language/{{JSONForm1.formData.LanguageID}}
 # Delete Method:
-# @language.route('/language/<int:language_id>', methods=['DELETE'])
-# def delete_language(language_id):
-#     # Constructing the query
-#     query = '''
-#     DELETE FROM Language 
-#     WHERE LanguageID = %s
-#     '''
-#     data = (language_id,)
+@language.route('/language/<id>', methods=['DELETE'])
+def delete_language(id):
+    # Constructing the query
+    query = '''
+    DELETE FROM BABBLEBUDDIES.Language 
+    WHERE LanguageID = %s
+    '''
+    data = (id,)
 
-#     current_app.logger.info(query)
+    current_app.logger.info(query)
 
-#     # Executing and committing the delete statement
-#     cursor = db.get_db().cursor()
-#     cursor.execute(query, data)
-#     db.get_db().commit()
+    # Executing and committing the delete statement
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
 
-#     return 'Success!'
-
-
+    return 'Success!'
 
 
 
@@ -156,7 +150,7 @@ def add_new_language():
 
 
     # Constructing the query
-    query = 'INSERT INTO language (LanguageID, DifficultyLevel, Name) VALUES (%s, %s, %s)'
+    query = 'INSERT INTO BABBLEBUDDIES.Language (LanguageID, DifficultyLevel, Name) VALUES (%s, %s, %s)'
     current_app.logger.info(query)
 
     # executing and committing the insert statement 
@@ -165,6 +159,13 @@ def add_new_language():
     db.get_db().commit()
 
     return 'Success!'
+
+
+
+
+
+
+
 
 
 
