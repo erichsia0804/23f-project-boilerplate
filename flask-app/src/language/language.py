@@ -111,7 +111,6 @@ def put_specific_language(language_id):
 
 
 
-# web:4000/l/language/{{JSONForm1.formData.LanguageID}}
 # Delete Method:
 @language.route('/language/<id>', methods=['DELETE'])
 def delete_language(id):
