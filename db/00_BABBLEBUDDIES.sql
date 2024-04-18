@@ -114,14 +114,14 @@ CREATE TABLE IF NOT EXISTS Travels_to (
     FOREIGN KEY (CountryID) REFERENCES Country(CountryID)
 );
 
-CREATE TABLE IF NOT EXISTS Traveler_nativelanguage (
-    NativeLanguage VARCHAR(100) NOT NULL,
-    TravelerID INT PRIMARY KEY,
-    Name VARCHAR(100) NOT NULL,
-    Age INT NOT NULL,
-    Email VARCHAR(100) NOT NULL,
-    CountryOfOrigin VARCHAR(100) NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS Traveler_nativelanguage (
+--     NativeLanguage VARCHAR(100) NOT NULL,
+--     TravelerID INT PRIMARY KEY,
+--     Name VARCHAR(100) NOT NULL,
+--     Age INT NOT NULL,
+--     Email VARCHAR(100) NOT NULL,
+--     CountryOfOrigin VARCHAR(100) NOT NULL
+-- );
 
 CREATE TABLE IF NOT EXISTS Teaches (
     TeacherID INT NOT NULL,
@@ -143,17 +143,17 @@ CREATE TABLE IF NOT EXISTS Teacher_education (
     FOREIGN KEY (TeacherID) REFERENCES Teacher(TeacherID)
 );
 
-CREATE TABLE IF NOT EXISTS TeacherNativelanguage (
-    NativeLanguage VARCHAR(100) NOT NULL,
-    TeacherID INT PRIMARY KEY,
-    Name VARCHAR(100) NOT NULL,
-    Age INT NOT NULL,
-    Email VARCHAR(100) NOT NULL,
-    CountryOfOrigin VARCHAR(100) NOT NULL,
-    Salary DECIMAL(10, 2) NOT NULL,
-    Education VARCHAR(100) NOT NULL,
-    FOREIGN KEY (TeacherID) REFERENCES Teacher(TeacherID)
-);
+-- CREATE TABLE IF NOT EXISTS TeacherNativelanguage (
+--     NativeLanguage VARCHAR(100) NOT NULL,
+--     TeacherID INT PRIMARY KEY,
+--     Name VARCHAR(100) NOT NULL,
+--     Age INT NOT NULL,
+--     Email VARCHAR(100) NOT NULL,
+--     CountryOfOrigin VARCHAR(100) NOT NULL,
+--     Salary DECIMAL(10, 2) NOT NULL,
+--     Education VARCHAR(100) NOT NULL,
+--     FOREIGN KEY (TeacherID) REFERENCES Teacher(TeacherID)
+-- );
 
 CREATE TABLE IF NOT EXISTS Supports (
     ClassID INT NOT NULL,
@@ -181,16 +181,15 @@ CREATE TABLE IF NOT EXISTS Holds (
     FOREIGN KEY (TeacherID) REFERENCES Teacher(TeacherID)
 );
 
-CREATE TABLE IF NOT EXISTS Student_nativelanguage (
-    NativeLanguage VARCHAR(100) NOT NULL,
-    StudentID INT PRIMARY KEY,
-    Name VARCHAR(100) NOT NULL,
-    Age INT NOT NULL,
-    Email VARCHAR(100) NOT NULL,
-    CountryOfOrigin VARCHAR(100) NOT NULL,
-    Grade INT NOT NULL
-
-);
+-- CREATE TABLE IF NOT EXISTS Student_nativelanguage (
+--     NativeLanguage VARCHAR(100) NOT NULL,
+--     StudentID INT PRIMARY KEY,
+--     Name VARCHAR(100) NOT NULL,
+--     Age INT NOT NULL,
+--     Email VARCHAR(100) NOT NULL,
+--     CountryOfOrigin VARCHAR(100) NOT NULL,
+--     Grade INT NOT NULL
+-- );
 
 CREATE TABLE IF NOT EXISTS Joins (
     LearnerID INT NOT NULL,
@@ -200,28 +199,28 @@ CREATE TABLE IF NOT EXISTS Joins (
     FOREIGN KEY (CommunityID) REFERENCES Community(CommunityID)
 );
 
-CREATE TABLE IF NOT EXISTS LearnerNativelanguage (
-    NativeLanguage VARCHAR(100) NOT NULL,
-    LearnerID INT PRIMARY KEY,
-    Name VARCHAR(100) NOT NULL,
-    Age INT NOT NULL,
-    Email VARCHAR(100) NOT NULL,
-    CountryOfOrigin VARCHAR(100) NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS LearnerNativelanguage (
+--     NativeLanguage VARCHAR(100) NOT NULL,
+--     LearnerID INT PRIMARY KEY,
+--     Name VARCHAR(100) NOT NULL,
+--     Age INT NOT NULL,
+--     Email VARCHAR(100) NOT NULL,
+--     CountryOfOrigin VARCHAR(100) NOT NULL
+-- );
 
 
-# Altering Missed Keys
-ALTER TABLE Student_nativelanguage
-ADD CONSTRAINT fk_01
-FOREIGN KEY (StudentID) REFERENCES Student(StudentID);
+-- # Altering Missed Keys
+-- ALTER TABLE Student_nativelanguage
+-- ADD CONSTRAINT fk_01
+-- FOREIGN KEY (StudentID) REFERENCES Student(StudentID);
 
-ALTER TABLE LearnerNativelanguage
-ADD CONSTRAINT fk_02
-FOREIGN KEY (LearnerID) REFERENCES Learner(LearnerID);
+-- ALTER TABLE LearnerNativelanguage
+-- ADD CONSTRAINT fk_02
+-- FOREIGN KEY (LearnerID) REFERENCES Learner(LearnerID);
 
-ALTER TABLE Traveler_nativelanguage
-ADD CONSTRAINT fk_03
-FOREIGN KEY (TravelerID) REFERENCES Traveler(TravelerID);
+-- ALTER TABLE Traveler_nativelanguage
+-- ADD CONSTRAINT fk_03
+-- FOREIGN KEY (TravelerID) REFERENCES Traveler(TravelerID);
 
 
 

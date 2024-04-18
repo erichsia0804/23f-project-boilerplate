@@ -1,0 +1,317 @@
+
+-- # Converted from MS Access 2010 Northwind database (northwind.accdb) using
+-- # Bullzip MS Access to MySQL Version 5.1.242. http://www.bullzip.com
+-- #
+-- # CHANGES MADE AFTER INITIAL CONVERSION
+-- # * column and row names in CamelCase converted to lower_case_with_underscore
+-- # * space and slash ("/") in table and column names replaced with _underscore_
+-- # * id column names converted to "id"
+-- # * foreign key column names converted to xxx_id
+-- # * variables of type TIMESTAMP converted to DATETIME to avoid TIMESTAMP
+-- #   range limitation (1997 - 2038 UTC), and other limitations.
+-- # * unique and foreign key checks disabled while loading data
+-- #------------------------------------------------------------------
+-- #
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
+USE BABBLEBUDDIES;
+
+
+
+insert into Language (languageid, difficultylevel, name) values (1, 5, 'Spanish');
+
+
+
+insert into Community (communityid, language) values (1, 5);
+
+
+
+insert into Country (countryid, name, language) values (1, 'United States', 'Finnish');
+
+
+
+
+insert into Teacher (teacherid, name, age, email, education, salary, nativelanguage) values (1, 'Traci', 37, 'thendriks0@ucsd.edu', 'doctor', 7703, "Urdu");
+
+
+
+
+insert into Student (studentid, grades, name, age, email, countryoforigin, nativelanguage) values (1, 3, 'Aspen', 26, 'aexter0@sphinn.com', "Spain", "English");
+
+
+
+insert into Traveler (travelerid, name, age, email, countryoforigin, nativelanguage) values (1, 'Sansone', 41, 'sdorrington0@engadget.com', "Korea", "Korean");
+
+
+insert into LearningMaterials (materialid, materialtype, languageid, complexitylevel) values (1, 'reading', 14, 5);
+
+
+insert into Class (classid, duration, datetime) values (1, 63, '2023-11-22');
+
+
+
+insert into Learner (learnerid, age, email, countryoforigin, name, nativelanguage) values (1, 20, 'mcoggon0@cnn.com', "United States", 'Margery', "English");
+
+
+
+
+insert into Supports (classid, materialid, languageid) values (30, 47, 38);
+
+
+
+
+insert into Attends (classid, studentid) values (5, 50);
+
+
+
+
+
+insert into Holds (classid, teacherid) values (1, 46);
+
+insert into Country_language (language, countryid) values (12, 1);
+
+insert into Joins (learnerid, communityid) values (35, 54);
+
+
+insert into Has (materialid, languageid) values (55, 22);
+
+
+insert into Teaches (teacherid, languageid) values (388, 30);
+
+insert into Travels_to (travelduration, travelerid, countryid) values (9, 1, 18);
+
+
+insert into Learns (proficiencylevel, studentid, languageid, learnerid, travelerid) values (5, 28, 12, 1, 31);
+
+
+insert into Teacher_education (education, teacherid, name, age, email, countryoforigin, salary, nativelanguage) values ('doctor', 1, 'Joshia', 45, 'jgyngell0@diigo.com', "United States", 7020, "English");
+
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (21, 1, 'Hewie', 21, 'hbacke0@ted.com', 47);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (42, 2, 'Mack', 25, 'mlarkkem1@nyu.edu', 9);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (8, 3, 'Kordula', 23, 'kdowney2@nytimes.com', 16);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (19, 4, 'Leupold', 26, 'lspiteri3@discuz.net', 29);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (25, 5, 'Arlena', 21, 'ajain4@yandex.ru', 47);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (46, 6, 'Addie', 22, 'aclubb5@quantcast.com', 12);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (9, 7, 'Maura', 27, 'mwellard6@webs.com', 4);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (46, 8, 'Ophelia', 18, 'omundford7@com.com', 16);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (26, 9, 'Rem', 25, 'rboyes8@intel.com', 50);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (35, 10, 'Dame', 21, 'dkeller9@homestead.com', 48);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (12, 11, 'Brinn', 20, 'bheugela@salon.com', 13);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (16, 12, 'Inesita', 23, 'ikearyb@example.com', 20);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (35, 13, 'Juditha', 28, 'jbloschkec@jimdo.com', 4);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (9, 14, 'Martin', 23, 'mbowkettd@webeden.co.uk', 38);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (25, 15, 'Jermaine', 18, 'jbarnsdalle@cyberchimps.com', 3);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (9, 16, 'Corine', 27, 'ccordenf@shareasale.com', 3);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (2, 17, 'Kaile', 18, 'kmcqueeng@toplist.cz', 49);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (15, 18, 'Gradey', 24, 'gpactath@reddit.com', 10);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (32, 19, 'Carmelle', 19, 'cbroxapi@google.com.br', 3);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (39, 20, 'Darsey', 18, 'dsuerzj@wix.com', 39);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (17, 21, 'Thurston', 26, 'tsellsk@prweb.com', 16);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (27, 22, 'Fianna', 27, 'fmidghalll@amazon.co.jp', 38);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (24, 23, 'Klara', 18, 'kcozinsm@phpbb.com', 7);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (43, 24, 'Roxy', 23, 'rbreconn@dailymotion.com', 12);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (18, 25, 'Wanda', 25, 'wgiacomassoo@paypal.com', 47);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (21, 26, 'Ruth', 27, 'rphilippoup@theglobeandmail.com', 43);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (12, 27, 'Hernando', 21, 'hstedeq@hatena.ne.jp', 34);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (9, 28, 'Conan', 27, 'cbierlingr@google.com', 22);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (43, 29, 'Delmor', 18, 'ddumberrills@smugmug.com', 46);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (21, 30, 'Lek', 28, 'lbirtlest@wix.com', 10);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (46, 31, 'Gerik', 18, 'gclaibournu@google.ca', 28);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (46, 32, 'Hyacintha', 18, 'hvernav@tumblr.com', 33);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (35, 33, 'Ibrahim', 23, 'ibradburyw@dailymotion.com', 16);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (15, 34, 'Kincaid', 26, 'kheartyx@ow.ly', 9);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (15, 35, 'Thedrick', 20, 'theditchy@bbc.co.uk', 32);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (10, 36, 'Silvano', 24, 'sassurz@acquirethisname.com', 48);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (39, 37, 'Cort', 18, 'chuntar10@sogou.com', 2);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (24, 38, 'Alwin', 26, 'achafer11@tripadvisor.com', 48);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (44, 39, 'Vail', 23, 'vpatrickson12@yale.edu', 38);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (24, 40, 'Hamnet', 21, 'hskep13@dyndns.org', 39);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (1, 41, 'Paule', 22, 'psnoddy14@jimdo.com', 38);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (28, 42, 'Licha', 25, 'llamberteschi15@netvibes.com', 43);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (8, 43, 'Bailie', 26, 'bgillford16@simplemachines.org', 39);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (23, 44, 'Trenna', 24, 'tmarzellano17@hibu.com', 10);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (18, 45, 'Mylo', 26, 'mdavydychev18@pbs.org', 24);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (50, 46, 'Agna', 22, 'amaciejak19@state.gov', 24);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (20, 47, 'Ann', 22, 'arosenfield1a@list-manage.com', 3);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (4, 48, 'Ainslie', 27, 'ajoselevitch1b@timesonline.co.uk', 12);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (17, 49, 'Kevina', 19, 'kgolton1c@aol.com', 4);
+-- insert into Traveler_nativelanguage (nativelanguage, travelerid, name, age, email, countryoforigin) values (32, 50, 'Dino', 26, 'dredfearn1d@jiathis.com', 17);
+*/
+
+
+
+
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (32, 1, 'Barbara-anne', 23, 'bgiraudoux0@nationalgeographic.com', 48);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (4, 2, 'Elisha', 24, 'estandrin1@imgur.com', 32);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (46, 3, 'Maddie', 18, 'metteridge2@omniture.com', 2);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (34, 4, 'Rubetta', 28, 'rjanosevic3@opensource.org', 35);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (15, 5, 'Torrence', 21, 'tpavelka4@oracle.com', 17);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (23, 6, 'Claire', 27, 'cboycott5@imageshack.us', 16);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (24, 7, 'Arluene', 21, 'amellhuish6@bloglines.com', 17);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (23, 8, 'Gabey', 20, 'garthey7@berkeley.edu', 36);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (27, 9, 'Cody', 27, 'cjarmaine8@merriam-webster.com', 18);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (6, 10, 'Jessamyn', 23, 'jwhittet9@yandex.ru', 44);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (31, 11, 'Quinta', 22, 'qaveya@examiner.com', 44);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (4, 12, 'Marnia', 24, 'mcamidgeb@drupal.org', 47);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (50, 13, 'Tisha', 18, 'tfowkesc@vistaprint.com', 6);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (19, 14, 'Roxana', 18, 'rlidgleyd@dell.com', 8);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (6, 15, 'Kacie', 25, 'kmockette@ebay.com', 15);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (12, 16, 'Zachery', 25, 'zduncansonf@msu.edu', 1);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (25, 17, 'Ruby', 18, 'rmordieg@cdc.gov', 35);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (38, 18, 'Gilberta', 27, 'gvelldenh@xing.com', 1);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (26, 19, 'Lynea', 21, 'lgleavei@desdev.cn', 19);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (19, 20, 'Emilio', 22, 'elewsyj@live.com', 18);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (16, 21, 'Pandora', 27, 'palabonek@columbia.edu', 17);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (33, 22, 'Rudolf', 28, 'rfulloml@who.int', 36);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (3, 23, 'Aigneis', 25, 'aadamem@chron.com', 16);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (20, 24, 'Belinda', 19, 'bpolen@youku.com', 38);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (37, 25, 'Olive', 23, 'ocoppero@indiegogo.com', 17);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (27, 26, 'Chane', 27, 'cavrahamyp@wikia.com', 38);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (23, 27, 'Bing', 26, 'bonthankq@addtoany.com', 14);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (13, 28, 'Christophorus', 20, 'cwoolforder@nhs.uk', 49);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (22, 29, 'Sauveur', 20, 'spembles@vistaprint.com', 43);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (44, 30, 'Nancy', 18, 'ncambert@dedecms.com', 10);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (9, 31, 'Penrod', 19, 'pmolloyu@youku.com', 48);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (22, 32, 'Sigfrid', 19, 'sburgissv@opera.com', 13);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (49, 33, 'Wendye', 24, 'wdurrancew@netscape.com', 7);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (42, 34, 'Linn', 25, 'lshorlandx@ted.com', 33);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (3, 35, 'Nefen', 22, 'nrettery@chicagotribune.com', 29);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (22, 36, 'Joni', 24, 'jknappz@chron.com', 15);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (47, 37, 'Marris', 22, 'mamiable10@time.com', 28);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (35, 38, 'Larisa', 18, 'ldanbi11@ycombinator.com', 24);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (2, 39, 'Miles', 27, 'mlongfoot12@1688.com', 2);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (41, 40, 'Gallard', 25, 'gickowicz13@chron.com', 2);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (25, 41, 'Rowena', 28, 'rmolloy14@blogger.com', 35);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (3, 42, 'Maribelle', 23, 'modwyer15@stanford.edu', 1);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (48, 43, 'Marybelle', 27, 'mthoday16@nationalgeographic.com', 28);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (13, 44, 'Hodge', 19, 'hfitzsymonds17@webmd.com', 31);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (50, 45, 'Lucias', 28, 'larckoll18@ucoz.ru', 39);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (46, 46, 'Cullen', 28, 'crosingdall19@ask.com', 1);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (38, 47, 'Brigid', 21, 'bhinrich1a@devhub.com', 2);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (4, 48, 'Karina', 26, 'kdunne1b@xrea.com', 25);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (41, 49, 'Wake', 22, 'worum1c@gmpg.org', 46);
+-- insert into LearnerNativelanguage (nativelanguage, learnerid, name, age, email, countryoforigin) values (25, 50, 'Berna', 21, 'bcaneo1d@ftc.gov', 30);
+
+
+/*
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (18, 1, 'Ethelda', 38, 'esnufflebottom0@studiopress.com', 11, 8839, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (37, 2, 'Arlyne', 25, 'awyson1@newsvine.com', 41, 3377, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (30, 3, 'Huntley', 37, 'hmanns2@prnewswire.com', 48, 4987, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (34, 4, 'Ogden', 32, 'oeveral3@stumbleupon.com', 37, 5488, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (36, 5, 'Jarrad', 30, 'jcaltera4@wikispaces.com', 9, 4615, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (11, 6, 'Hillel', 27, 'hbending5@tripadvisor.com', 22, 6873, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (31, 7, 'Finley', 33, 'fguilleton6@macromedia.com', 9, 4721, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (42, 8, 'Matthew', 47, 'muttley7@berkeley.edu', 4, 8091, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (4, 9, 'Minnnie', 33, 'msinden8@forbes.com', 40, 3021, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (45, 10, 'Erwin', 46, 'eworsall9@vkontakte.ru', 11, 3592, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (50, 11, 'Obidiah', 37, 'oduleya@vinaora.com', 38, 2485, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (44, 12, 'Baxy', 49, 'bscogganb@huffingtonpost.com', 28, 6502, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (18, 13, 'Witty', 42, 'wlashmorec@rediff.com', 2, 3606, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (36, 14, 'Issie', 35, 'igoslind@nps.gov', 29, 4054, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (19, 15, 'Teodorico', 49, 'tflatmane@princeton.edu', 35, 3806, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (12, 16, 'Leela', 39, 'lgreenierf@histats.com', 19, 2824, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (48, 17, 'Maurine', 27, 'mstorryg@gmpg.org', 41, 4600, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (6, 18, 'Winfred', 23, 'wcaughtryh@toplist.cz', 25, 6608, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (1, 19, 'Lora', 28, 'lbufferyi@mozilla.com', 37, 6440, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (16, 20, 'Aurora', 48, 'acowtonj@pcworld.com', 28, 8889, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (7, 21, 'Isidore', 30, 'iblackshawk@imgur.com', 34, 9759, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (28, 22, 'Jayne', 48, 'jchurchwardl@unicef.org', 8, 4494, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (41, 23, 'Tabina', 32, 'tragbournm@cafepress.com', 44, 3456, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (50, 24, 'Terri', 37, 'thaskewn@xinhuanet.com', 28, 5784, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (32, 25, 'Sallie', 38, 'slamerso@usda.gov', 15, 6690, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (38, 26, 'Kala', 47, 'kglavesp@cbslocal.com', 27, 9240, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (18, 27, 'Sibilla', 35, 'sarchibaldq@nature.com', 41, 4256, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (2, 28, 'Waverly', 26, 'washleyr@go.com', 17, 8028, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (16, 29, 'Beaufort', 48, 'bbrockleys@soundcloud.com', 25, 7428, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (10, 30, 'Marylinda', 37, 'mgadaultt@github.io', 5, 7121, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (40, 31, 'Cordey', 33, 'cnellisu@barnesandnoble.com', 3, 4780, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (36, 32, 'Celestine', 19, 'cwardhaughv@un.org', 23, 3016, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (27, 33, 'Kimbra', 27, 'kgillionsw@canalblog.com', 8, 3061, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (32, 34, 'Amelia', 41, 'arobkex@google.com.hk', 22, 7871, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (41, 35, 'Delora', 40, 'dmontforty@zimbio.com', 9, 3668, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (14, 36, 'Joe', 18, 'jharteganz@washington.edu', 27, 7180, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (15, 37, 'Fraze', 32, 'fsheather10@nbcnews.com', 7, 6381, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (13, 38, 'Yetty', 36, 'ykeune11@tamu.edu', 20, 5467, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (49, 39, 'Kamilah', 25, 'kmccafferty12@google.cn', 28, 7410, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (44, 40, 'Ambros', 26, 'amelbury13@istockphoto.com', 6, 4455, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (41, 41, 'Kimberli', 31, 'kmcvane14@spiegel.de', 43, 5645, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (10, 42, 'Tabatha', 45, 'tleitch15@amazon.co.uk', 2, 5157, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (6, 43, 'Edna', 30, 'ebront16@google.com.br', 5, 7208, 'master');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (15, 44, 'Tally', 39, 'tpriter17@geocities.com', 50, 6434, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (18, 45, 'Melicent', 47, 'meckhard18@163.com', 19, 3318, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (47, 46, 'Mauricio', 41, 'meastgate19@posterous.com', 24, 6920, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (2, 47, 'Frederick', 20, 'fgibke1a@ebay.co.uk', 43, 5071, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (13, 48, 'Deva', 30, 'dbroader1b@rakuten.co.jp', 34, 6162, 'bachelor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (39, 49, 'Bev', 46, 'bkupec1c@reverbnation.com', 34, 2112, 'doctor');
+-- insert into TeacherNativelanguage (nativelanguage, teacherid, name, age, email, countryoforigin, salary, education) values (4, 50, 'Nerte', 29, 'ncircuit1d@mozilla.com', 6, 6407, 'bachelor');
+*/
+/*
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (23, 1, 'Carla', 18, 'cwallerbridge0@virginia.edu', 23, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (20, 2, 'Shirlene', 25, 'stawse1@spotify.com', 14, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (35, 3, 'Randi', 26, 'rroan2@topsy.com', 2, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (18, 4, 'Daffie', 28, 'dsheed3@shop-pro.jp', 2, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (41, 5, 'Dannie', 19, 'dlowne4@usgs.gov', 42, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (30, 6, 'Devina', 20, 'dbroad5@irs.gov', 26, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (7, 7, 'Corrina', 28, 'cbroz6@marriott.com', 26, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (7, 8, 'Keenan', 26, 'klowndsborough7@live.com', 1, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (50, 9, 'Jamey', 19, 'jbarti8@discovery.com', 13, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (20, 10, 'Dore', 18, 'dburdus9@friendfeed.com', 43, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (40, 11, 'Carol-jean', 25, 'cilyuchyova@163.com', 15, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (31, 12, 'Richmond', 22, 'rparonib@etsy.com', 6, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (38, 13, 'Micah', 26, 'mkilgallenc@hud.gov', 3, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (9, 14, 'Bogart', 18, 'bvickerd@uiuc.edu', 30, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (9, 15, 'Sammie', 18, 'scaswelle@friendfeed.com', 40, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (38, 16, 'Yetty', 18, 'ypodsf@addthis.com', 39, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (33, 17, 'Tamra', 19, 'tbruntong@cdbaby.com', 26, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (44, 18, 'Westbrooke', 27, 'wreolfih@latimes.com', 9, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (27, 19, 'Dee', 19, 'dwillmenti@ucsd.edu', 15, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (13, 20, 'Buiron', 25, 'blaysonj@nih.gov', 48, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (15, 21, 'Ludwig', 23, 'lbarkessk@eventbrite.com', 50, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (15, 22, 'Artus', 24, 'abircherl@paypal.com', 33, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (25, 23, 'Lauritz', 23, 'lobbardm@salon.com', 2, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (1, 24, 'Galven', 21, 'gsavouryn@yellowpages.com', 9, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (33, 25, 'Hurley', 27, 'hvigarso@ovh.net', 39, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (36, 26, 'Angelika', 18, 'amonkp@latimes.com', 33, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (17, 27, 'Nick', 19, 'nmatzlq@imgur.com', 22, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (13, 28, 'Tuesday', 18, 'tcochranr@yale.edu', 32, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (41, 29, 'Billie', 27, 'bknaggess@parallels.com', 8, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (13, 30, 'Ario', 20, 'asandsallant@wikimedia.org', 30, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (28, 31, 'Neda', 24, 'nhollowu@cisco.com', 32, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (45, 32, 'Albina', 19, 'acriminv@usda.gov', 41, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (23, 33, 'Lorain', 25, 'lmurnamew@sitemeter.com', 10, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (31, 34, 'Bel', 21, 'bmccuaigx@1und1.de', 2, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (10, 35, 'Lind', 27, 'lbouslery@phoca.cz', 27, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (44, 36, 'Kelcie', 22, 'kmcsorleyz@goodreads.com', 43, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (34, 37, 'Spense', 26, 'smuggeridge10@epa.gov', 39, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (31, 38, 'Cristionna', 23, 'clerven11@jimdo.com', 24, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (26, 39, 'Gilbert', 28, 'gferreo12@hc360.com', 43, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (34, 40, 'Marne', 26, 'mfranek13@nbcnews.com', 24, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (35, 41, 'Krystle', 23, 'klooby14@yandex.ru', 24, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (2, 42, 'Lizabeth', 19, 'lrundle15@salon.com', 20, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (36, 43, 'Clerkclaude', 23, 'cbreedy16@sun.com', 3, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (47, 44, 'Jennica', 18, 'jmarr17@omniture.com', 6, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (7, 45, 'Ignacius', 26, 'itompkin18@sciencedirect.com', 23, 1);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (44, 46, 'Raymund', 24, 'rscotchforth19@weibo.com', 2, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (47, 47, 'Willyt', 27, 'whevey1a@prnewswire.com', 13, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (42, 48, 'Mable', 20, 'mcapstack1b@prlog.org', 48, 2);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (9, 49, 'Stefanie', 26, 'selie1c@xinhuanet.com', 32, 3);
+-- insert into Student_nativelanguage (nativelanguage, studentid, name, age, email, countryoforigin, grade) values (5, 50, 'Mariana', 18, 'mgranham1d@addtoany.com', 19, 1);
+*/
