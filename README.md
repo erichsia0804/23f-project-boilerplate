@@ -1,5 +1,7 @@
 # MySQL + Flask Boilerplate Project
 
+DEMO: https://youtu.be/d1L3kI_mglQ
+
 This repo contains a boilerplate setup for spinning up 3 Docker containers: 
 1. A MySQL 8 container for obvious reasons
 1. A Python Flask container to implement a REST API
