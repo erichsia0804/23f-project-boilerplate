@@ -1,6 +1,10 @@
 # MySQL + Flask Boilerplate Project
 
+Members: Aspen Tabar, Kritika Uprety, Harshita Narahari, Wanrou Yang, Chen-Yu Hsia
+
 DEMO: https://youtu.be/d1L3kI_mglQ
+
+Password is: "password"
 
 This repo contains a boilerplate setup for spinning up 3 Docker containers: 
 1. A MySQL 8 container for obvious reasons
